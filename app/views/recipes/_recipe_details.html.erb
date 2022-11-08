@@ -6,18 +6,12 @@
 
   <p>
     <strong>Preparation time:</strong>
-    <%= @recipe.preparation_time %> <span><strong> hours</span></strong> 
+    <%= distance_of_time_in_words(0, @recipe.preparation_time.minutes) %> 
   </p>
 
   <p>
     <strong>Cooking time:</strong>
-    <%= @recipe.cooking_time %> 
-    <span><strong> hours</span></strong> 
-  </p>
-
-  <p>
-    <strong>Description:</strong>
-    <%= @recipe.description %>
+    <%= distance_of_time_in_words(0,@recipe.cooking_time.minutes) %> 
   </p>
 
   <p>
