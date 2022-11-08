@@ -64,7 +64,7 @@ class RecipesController < ApplicationController
   end
 
   def public_recipes
-    @public_recipes = Recipe.where(public: true).or(Recipe.where(user_id: current_user.id))
+    @public_recipes = Recipe.where(public: true)
   end
   private
 
