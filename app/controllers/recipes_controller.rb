@@ -65,6 +65,10 @@ class RecipesController < ApplicationController
     @public_recipes = Recipe.where(public: true)
   end
 
+  def ingredients
+    @foods = Food.where(user_id: current_user.id)
+  end
+
   private
 
   # Use callbacks to share common setup or constraints between actions.

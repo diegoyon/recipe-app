@@ -1,0 +1,25 @@
+<p style="color: green"><%= notice %></p>
+
+<%= link_to "New food", new_food_path %>
+
+<div id="foods">
+  <div class="foodtitle-row">
+    <p>Food</p>
+    <p>Measurement Unit</p>
+    <p>Price</p>
+    <p>Quantity</p>
+    <p>User</p>
+    <p>Actions</p>
+  </div>
+  <%#= Recipe.first.name %>
+  <%= form_with(model: Recipe.first) do |f| %>
+    <h2>Select foods</h2>
+
+    <%= f.collection_check_boxes(:food_ids, Food.all, :id, :name) %>
+ 
+    <div class="actions">
+      <%= f.submit %>
+    </div>
+  <% end %>
+
+</div>

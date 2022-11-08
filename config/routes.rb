@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   resources :foods
   resources :users
   get '/public_recipes', to: 'recipes#public_recipes'
+  get '/ingredients', to: 'recipes#ingredients'
   # get '/patients/:id', to: 'patients#show', as: 'patient'
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
