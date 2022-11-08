@@ -1,0 +1,20 @@
+#foods {
+  border: 1px solid black;
+  display: flex;
+  flex-direction: column;
+}
+
+#foods > div:nth-child(2n-1) {
+  background-color: rgb(185, 185, 185);
+}
+
+.foodtitle-row,
+.food-row {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  column-gap: 1rem;
+}
+
+.foodtitle-row {
+  background-color: rgb(100, 100, 100) !important;
+}
