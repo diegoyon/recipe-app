@@ -57,15 +57,14 @@ class RecipesController < ApplicationController
     end
   end
 
-  def set_recipe_publicity
-  end
+  def set_recipe_publicity; end
 
-  def unset_recipe_publicity
-  end
+  def unset_recipe_publicity; end
 
   def public_recipes
     @public_recipes = Recipe.where(public: true)
   end
+
   private
 
   # Use callbacks to share common setup or constraints between actions.
