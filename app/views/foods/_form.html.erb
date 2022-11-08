@@ -31,6 +31,10 @@
     <%= form.number_field :quantity %>
   </div>
 
+  <div style="display: none;">
+    <%= form.label :user_id, style: "display: block" %>
+    <%= form.number_field :user_id, value: current_user.id %>
+  </div>
 
   <div>
     <%= form.submit %>
