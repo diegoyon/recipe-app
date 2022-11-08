@@ -57,6 +57,15 @@ class RecipesController < ApplicationController
     end
   end
 
+  def set_recipe_publicity
+  end
+
+  def unset_recipe_publicity
+  end
+
+  def public_recipes
+    @public_recipes = Recipe.where(public: true).or(Recipe.where(user_id: current_user.id))
+  end
   private
 
   # Use callbacks to share common setup or constraints between actions.
