@@ -1,0 +1,22 @@
+<div>
+  <p>
+    <strong>Name:</strong>
+    <%= @recipe.name %>
+  </p>
+
+  <p>
+    <strong>Preparation time:</strong>
+    <%= distance_of_time_in_words(0, @recipe.preparation_time.minutes) %> 
+  </p>
+
+  <p>
+    <strong>Cooking time:</strong>
+    <%= distance_of_time_in_words(0,@recipe.cooking_time.minutes) %> 
+  </p>
+
+  <p>
+    <strong>Public:</strong>
+    <%= @recipe.public %>
+  </p>
+
+</div>

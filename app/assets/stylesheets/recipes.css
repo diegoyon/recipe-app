@@ -1,0 +1,22 @@
+.recipe-name-remove {
+  display: flex;
+  flex-direction: column;
+}
+
+.recipe-index {
+  padding: 10px;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  border: 1px solid black;
+}
+
+.new-recipe {
+  border: 1px solid black;
+  width: 6em;
+  text-align: center;
+  color: lightblue;
+}
