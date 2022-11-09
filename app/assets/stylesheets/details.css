@@ -22,22 +22,20 @@
 }
 
 .food-list {
-  border: 1px solid black;
-  display: flex;
-  flex-direction: column;
-}
-
-.food-list > li:nth-child(2n-1) {
-  background-color: rgb(185, 185, 185);
-}
-
-.foodtitle-row,
-.food-row {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  column-gap: 1rem;
 }
 
-.foodtitle-row {
-  background-color: rgb(100, 100, 100) !important;
+.food-list > p:nth-child(8n-7),
+.food-list > p:nth-child(8n-6),
+.food-list > p:nth-child(8n-5),
+.food-list > p:nth-child(8n-4) {
+  background-color: rgb(184, 184, 184);
+}
+
+.food-list > p:nth-child(1),
+.food-list > p:nth-child(2),
+.food-list > p:nth-child(3),
+.food-list > p:nth-child(4) {
+  background-color: rgb(110, 110, 110);
 }

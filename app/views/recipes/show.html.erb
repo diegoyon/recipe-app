@@ -5,17 +5,18 @@
 <%= render 'recipe_details' %>
 
 <h1>List of foods</h1>
-<ul class="food-list">
- <div class="foodtitle-row">
-    <p>Food</p>
-    <p>Quantity</p>
-    <p>Value</p>
-    <p>Actions</p>
-  </div>
+<div class="food-list">
+  <p>Food</p>
+  <p>Quantity</p>
+  <p>Value</p>
+  <p>Actions</p>
   <% RecipeFood.where(recipe_id: @recipe.id).each do |recipe_food| %>
-    <li><%= Food.find_by(id:recipe_food.food_id).name %> <%= recipe_food.quantity%></li>
+    <p><%= Food.find_by(id:recipe_food.food_id).name %></p> 
+    <p><%= recipe_food.quantity%></p>
+     <p>value</p>
+     <p>button1 button2</p>
   <% end %>
-</ul>
+</div>
 
 <%= form_with(model: @recipe_food) do |form| %>
     <h2>Add ingredients</h2>
