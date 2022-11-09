@@ -35,8 +35,6 @@
     <%= form.label :public, style: "display: block" %>
     <%= form.check_box :public %>
   </div>
-
-   <%= form.collection_check_boxes(:food_ids, Food.all, :id, :name) %>
   
   <div>
     <%= form.submit %>
