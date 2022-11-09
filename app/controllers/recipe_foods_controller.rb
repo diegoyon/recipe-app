@@ -1,4 +1,5 @@
 class RecipeFoodsController < ApplicationController
+  before_action :set_recipe_food, only: %i[edit update destroy]
   def new
     @recipe_food = RecipeFood.new
   end
@@ -17,11 +18,13 @@ class RecipeFoodsController < ApplicationController
     end
   end
 
+  def edit; end
+
   # PATCH/PUT /recipes/1 or /recipes/1.json
   def update
     respond_to do |format|
       if @recipe_food.update(recipe_food_params)
-        format.html { redirect_to recipe_foods_url(@recipe_food), notice: 'Recipe was successfully updated.' }
+        format.html { redirect_to recipe_url(@recipe_food.recipe_id), notice: 'Recipe was successfully updated.' }
         format.json { render :show, status: :ok, location: @recipe_food }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -41,6 +44,10 @@ class RecipeFoodsController < ApplicationController
   end
 
   private
+
+  def set_recipe_food
+    @recipe_food = RecipeFood.find(params[:id])
+  end
 
   # Only allow a list of trusted parameters through.
   def recipe_food_params
