@@ -1,30 +1,52 @@
+<div class="shopping-list-page">
+  <% total = 0 %>
+  <h1>Shopping List</h1>
 
-<% arr_names = []%>
-<% @all_foods.each do |food| %>
-  <% arr_names.push(food.name) %>
-<% end %>
+  
+  
 
-<%= arr_names%>
+  <div class="shopping-list">
 
-<% arr_names.each do |name| %>
-  <% arr1 = [] %>
-  <% arr2 = [] %>
-  <% @foods = Food.where(name: name).and(Food.where(user_id: current_user.id)) %>
-  <% @recipe_food = RecipeFood.where(food_id: Food.where(name: name)[0].id) %>
+    <p>Food</p>
+    <p>Quantity</p>
+    <p>Price</p>
 
-  <% @foods.each do |food| %>
-    <% food.name %>
-    <% arr1.push(food.quantity) %>
-  <% end %>
-  <%= arr1 %>
+    <% arr_names = []%>
+    <% @all_foods.each do |food| %>
+      <% arr_names.push(food.name) %>
+    <% end %>
 
-  <% @recipe_food.each do |recipe_food| %>
-    <% recipe_food.food_id %>
-    <% arr2.push(recipe_food.quantity) %>
+    <%#= arr_names%>
+
+    <% arr_names.each do |name| %>
+      <% arr1 = [] %>
+      <% arr2 = [] %>
+      <% @foods = Food.where(name: name).and(Food.where(user_id: current_user.id)) %>
+      <% @recipe_food = RecipeFood.where(food_id: Food.where(name: name)[0].id) %>
+
+      <% @foods.each do |food| %>
+        <% food.name %>
+        <% arr1.push(food.quantity) %>
+      <% end %>
+      <%#= arr1 %>
+
+      <% @recipe_food.each do |recipe_food| %>
+        <% recipe_food.food_id %>
+        <% arr2.push(recipe_food.quantity) %>
+        
+      <% end %>
+      <%#= arr2 %>
+
+      <p><%= name %> </p>
+      <p><%=difference(arr1, arr2)%></p>
+      <p><%=difference(arr1, arr2) * Food.where(name: name)[0].price %></p>
+      <% total += difference(arr1, arr2) * Food.where(name: name)[0].price%>
+    <% end %>
+
     
-  <% end %>
-  <%= arr2 %>
-
-  <p>Amount of <%= name %> needed: <%=difference(arr1, arr2)%> Price: <%=difference(arr1, arr2) * Food.where(name: name)[0].price %></p>
-
-<% end %>
+  </div>
+  <div class="total-missing">
+      <h3>Amount of food items to buy: <%= @all_foods.length %> </h3>
+      <h3>Total value of food needed: <%= total %></h3>
+    </div>
+</div>
