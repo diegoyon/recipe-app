@@ -3,14 +3,12 @@
 <div class="recipe-name-remove">
 <%= link_to  recipe_path(recipe) do%>
   <p>
-    <strong>Name:</strong>
     <%= recipe.name %>
   </p>
   <%end%>
 <%= button_to "REMOVE", recipe, method: :delete %>
 </div>
   <p>
-    <strong>Description:</strong>
     <%= recipe.description %>
   </p>
   </div>
