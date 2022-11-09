@@ -19,10 +19,13 @@
     <strong>Cooking time:</strong>
     <%= distance_of_time_in_words(0,@recipe.cooking_time.minutes) %> 
   </p>
-
-  <p>
-    <strong>Public:</strong>
-    <%= @recipe.public %>
-  </p>
+    <%= form_with(model: @recipe ) do |f| %>
+      <div class='public-check'>
+        <p>
+         <strong>Public:</strong>
+        </p>
+     <%= f.check_box :public, class: 'form-control', onchange: 'this.form.submit();'  %>
+      </div>
+    <% end %>
 
 </div>
