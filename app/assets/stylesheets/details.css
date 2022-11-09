@@ -1,19 +1,23 @@
 .details-container {
   display: flex;
+  justify-content: center;
 }
 
 .details {
   display: flex;
   flex-direction: column;
+  gap: 30px;
 }
 
 .recipe-name {
   font-size: 3rem;
+  text-align: center;
 }
 
 .recipe-dits {
   display: flex;
-  flex-direction: column;
+  align-items: center;
+  gap: 90px;
 }
 
 .recipe-buttons {

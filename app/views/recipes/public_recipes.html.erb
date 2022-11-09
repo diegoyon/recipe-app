@@ -5,8 +5,7 @@
     <% @public_recipes.each do |recipe| %>
       <div class="recipe-title-user">
         <%= link_to  recipe_path(recipe) do%>
-          <p>
-            <strong>Name:</strong>
+          <p class="title-link">
             <%= recipe.name %>
           </p>
         <%end%>
@@ -19,12 +18,12 @@
       </div>
 
       <div class="foods-items">
-        <p>
+        <p class="fitems">
           <strong>Total food items:</strong>
           <%=recipe.foods.length%>
         </p>
         
-        <p>
+        <p class="fitems">
           <strong>Total Price: $</strong>
           <%=count_total(recipe.foods)%>
         </p>
