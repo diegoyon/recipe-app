@@ -55,6 +55,14 @@ class FoodsController < ApplicationController
     end
   end
 
+  def shopping_list
+    @all_foods = Food.all
+
+    # @recipe = Recipe
+    # @food_recipe = Recipe.
+    # @recipe_foods = RecipeFood.where(food_id: )
+  end
+
   private
 
   # Use callbacks to share common setup or constraints between actions.
