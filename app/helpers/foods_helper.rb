@@ -8,10 +8,11 @@ module FoodsHelper
     arr2.each do |food|
       @food_quantity2 += food
     end
-    @food_quantity2 - @food_quantity1
+    value = @food_quantity2 - @food_quantity1
+    if value >= 0
+      value
+    else
+      0
+    end
   end
-
-  # arr1=[foods.quantity][apple, banana]
-  # arr2=[recipe_foods.quantity][banana, apple, banana , apple, apple, banana]
-  # arr2 = select count(*)  where name: banana
 end

@@ -1,5 +1,6 @@
 <div class="shopping-list-page">
   <% total = 0 %>
+  <% total_items = 0 %>
   <h1>Shopping List</h1>
 
   <div class="shopping-list">
@@ -34,6 +35,10 @@
       <% end %>
       <%#= arr2 %>
 
+      <% if difference(arr1, arr2) == 0 %>
+        <% next %>
+      <% end %>
+      <% total_items += 1 %>
       <p><%= name %> </p>
       <p><%=difference(arr1, arr2)%></p>
       <p><%=difference(arr1, arr2) * Food.where(name: name)[0].price %></p>
@@ -43,7 +48,7 @@
     
   </div>
   <div class="total-missing">
-      <h3>Amount of food items to buy: <%= @all_foods.length %> </h3>
+      <h3>Amount of food items to buy: <%= total_items %> </h3>
       <h3>Total value of food needed: <%= total %></h3>
     </div>
 </div>
