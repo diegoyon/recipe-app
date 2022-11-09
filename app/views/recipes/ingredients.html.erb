@@ -12,14 +12,34 @@
     <p>Actions</p>
   </div>
   <%#= Recipe.first.name %>
-  <%= form_with(model: Recipe.first) do |f| %>
+  <%= form_with(model: @recipe_food) do |form| %>
     <h2>Select foods</h2>
-
-    <%= f.collection_check_boxes(:food_ids, Food.all, :id, :name) %>
- 
+    <%= form.label :food_id %>
+    <%= form.number_field :food_id %>
+    <%= form.label :recipe_id %>
+    <%= form.number_field :recipe_id, value: @recipe.id %>
+    <%= form.label :quantity %>
+    <%= form.number_field :quantity %>
     <div class="actions">
-      <%= f.submit %>
+      <%= form.submit %>
     </div>
   <% end %>
 
 </div>
+
+
+
+
+    <%# <div class="checkboxes"> %>
+      <%#= f.collection_check_boxes(:food_ids, Food.all, :id, :name) do |b| %>
+        <%#= b.label class:"label-checkbox" do%>
+          <%#=b.check_box + b.text%>
+          <%#= f.fields_for :recipe_food do |recipe_food_form| %>
+            <%# <li> %>
+              <%#= recipe_food_form.label :quantity %>
+              <%#= recipe_food_form.text_field :quantity %>
+            <%# </li> %>
+          <%# end %>
+        <%#end%>
+      <%#end%>
+    <%# </div> %>

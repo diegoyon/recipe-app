@@ -1,55 +1,19 @@
 <p style="color: green"><%= notice %></p>
 
 <%= render 'recipe_details' %>
+
 <h1>List of foods</h1>
-<% @recipe.foods.each do |food| %>
-      <%= food.name %>
-<% end %>
+<ul>
+  <% RecipeFood.where(recipe_id: @recipe.id).each do |recipe_food| %>
+    <li>Food: <%= Food.find_by(id:recipe_food.food_id).name %>, Quantity: <%= recipe_food.quantity%></li>
+  <% end %>
+</ul>
+
 <div>
   <%= link_to "Edit this recipe", edit_recipe_path(@recipe) %> |
   <%= link_to "Back to recipes", recipes_path %>
 
   <%= button_to "REMOVE", @recipe, method: :delete %>
 
-  <%= link_to "Add ingredient", ingredients_path %>
+  <%= link_to "Add ingredient", recipe_ingredients_path(@recipe) %>
 </div>
-
-<%= form_with(model: @food) do |form| %>
-  <% if @food.errors.any? %>
-    <div style="color: red">
-      <h2><%= pluralize(@food.errors.count, "error") %> prohibited this food from being saved:</h2>
-
-      <ul>
-        <% @food.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div>
-    <%= form.label :name, style: "display: block" %>
-    <%= form.text_field :name %>
-  </div>
-
-  <div>
-    <%= form.label :measurement_unit, style: "display: block" %>
-    <%= form.text_field :measurement_unit %>
-  </div>
-
-  <div>
-    <%= form.label :price, style: "display: block" %>
-    <%= form.text_field :price %>
-  </div>
-
-  <div>
-    <%= form.label :quantity, style: "display: block" %>
-    <%= form.number_field :quantity %>
-  </div>
-  <%= "Recipe ID:" %>
-  <%= form.text_field :recipe_ids, value: @recipe.id %>
-
-  <div>
-    <%= form.submit %>
-  </div>
-<% end %>
