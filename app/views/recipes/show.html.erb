@@ -2,9 +2,36 @@
 
 <%= render 'recipe_details' %>
 
+<h1>List of foods</h1>
+<ul>
+  <% RecipeFood.where(recipe_id: @recipe.id).each do |recipe_food| %>
+    <li>Food: <%= Food.find_by(id:recipe_food.food_id).name %>, Quantity: <%= recipe_food.quantity%></li>
+  <% end %>
+</ul>
+
 <div>
   <%= link_to "Edit this recipe", edit_recipe_path(@recipe) %> |
   <%= link_to "Back to recipes", recipes_path %>
 
   <%= button_to "REMOVE", @recipe, method: :delete %>
+
+  <%#= link_to "Add ingredient", recipe_ingredients_path(@recipe) %>
 </div>
+
+
+<%= form_with(model: @recipe_food) do |form| %>
+    <h2>Add ingredients</h2>
+    <%#= options_from_collection_for_select(Food.all, :id, :name) %>
+    <%= collection_select(:recipe_food, :food_id, Food.all, :id, :name) %>
+    <%#= form.label :food_id %>
+    <%#= form.number_field :food_id %>
+    <div style="display:none;">
+      <%= form.label :recipe_id %>
+      <%= form.number_field :recipe_id, value: @recipe.id %>
+    </div>
+    <%= form.label :quantity %>
+    <%= form.number_field :quantity %>
+    <div class="actions">
+      <%= form.submit "Add ingredient"%>
+    </div>
+  <% end %>
