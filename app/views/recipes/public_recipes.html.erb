@@ -1,7 +1,33 @@
 <h1>Public Recipes</h1>
 
-<div id="public-recipes">
-  <% @public_recipes.each do |recipe| %>
-      <%= render recipe %>
+<div class="public-recipes">
+    <% @public_recipes.each do |recipe| %>
+      <div class="recipe-title-user">
+        <%= link_to  recipe_path(recipe) do%>
+          <p>
+            <strong>Name:</strong>
+            <%= recipe.name %>
+          </p>
+        <%end%>
+
+        <p>
+          <strong>By:</strong>
+          <%= recipe.user.name%>
+        </p>
+
+      </div>
+
+      <div class="foods-items">
+        <p>
+          <strong>Total food items:</strong>
+          <%=recipe.foods.length%>
+        </p>
+        
+        <p>
+          <strong>Total Price: $</strong>
+          <%=count_total(recipe.foods)%>
+        </p>
+      </div>
+   
   <% end %>
 </div>
