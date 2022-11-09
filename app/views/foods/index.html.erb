@@ -14,7 +14,7 @@
       <p>User</p>
       <p>Actions</p>
     </div>
-    <% @foods.each do |food| %>
+    <% @foods.includes([:user]).each do |food| %>
       <%= render food %>
     
         <%#= link_to "Show this food", food %>
