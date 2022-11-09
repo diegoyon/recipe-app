@@ -1,13 +1,7 @@
-<div>
-
-   <p>
-    <strong>ID:</strong>
-    <%= @recipe.id %>
-  </p>
-
-  <p>
-    <strong>Name:</strong>
-    <%= @recipe.name %>
+<div class="recipe-dits">
+<div class="recipe-items">
+  <p class="recipe-name">
+    <%= @recipe.name %> 
   </p>
 
   <p>
@@ -19,6 +13,7 @@
     <strong>Cooking time:</strong>
     <%= distance_of_time_in_words(0,@recipe.cooking_time.minutes) %> 
   </p>
+  </div>
     <%= form_with(model: @recipe ) do |f| %>
       <div class='public-check'>
         <p>

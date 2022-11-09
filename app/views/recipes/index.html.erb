@@ -1,13 +1,14 @@
 <p style="color: green"><%= notice %></p>
 
 <h1>Recipes</h1>
+<div class="new-recipe">
+<%= link_to "New recipe", new_recipe_path %>
+</div>
+<div class="recipes-container">
 
-<div id="recipes">
+<div id="recipes" class="recipes">
   <% @recipes.each do |recipe| %>
       <%= render recipe %>
   <% end %>
 </div>
-
-<div class="new-recipe">
-<%= link_to "New recipe", new_recipe_path %>
 </div>

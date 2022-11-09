@@ -2,7 +2,6 @@ Rails.application.routes.draw do
   devise_for :users
   resources :recipes do
     get '/ingredients', to: 'recipes#ingredients'
-    resources :recipe_foods
   end
   resources :foods
   resources :users
