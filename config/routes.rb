@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   resources :users
   resources :recipe_foods
   get '/public_recipes', to: 'recipes#public_recipes'
+  get '/general_shopping_list', to: 'foods#shopping_list'
   
   # get '/patients/:id', to: 'patients#show', as: 'patient'
 
