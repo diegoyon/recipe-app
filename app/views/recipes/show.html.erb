@@ -4,7 +4,6 @@
 
 <%= render 'recipe_details' %>
 
-<h1>List of foods</h1>
 <div class="food-list">
   <p>Food</p>
   <p>Quantity</p>
@@ -13,8 +12,8 @@
   <% RecipeFood.where(recipe_id: @recipe.id).each do |recipe_food| %>
     <p><%= Food.find_by(id:recipe_food.food_id).name %></p> 
     <p><%= recipe_food.quantity%></p>
-     <p>value</p>
-     <p>button1 button2</p>
+     <p>$<%= Food.find_by(id:recipe_food.food_id).price * recipe_food.quantity %></p>
+     <p><%= link_to 'Modify', edit_recipe_food_path(recipe_food)%> <%= link_to "Remove", recipe_food, method: :delete %></p>
   <% end %>
 </div>
 
