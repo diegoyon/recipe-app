@@ -2,11 +2,11 @@ require 'rails_helper'
 
 RSpec.describe 'recipes/edit', type: :view do
   let(:recipe) do
+    sign_in @user
     Recipe.create!(
       name: 'MyString',
       description: 'MyText',
-      public: false,
-      user: nil
+      public: false
     )
   end
 

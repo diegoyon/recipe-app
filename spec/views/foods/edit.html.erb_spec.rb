@@ -1,5 +1,4 @@
 require 'rails_helper'
-
 RSpec.describe 'foods/edit', type: :view do
   let(:food) do
     Food.create!(
