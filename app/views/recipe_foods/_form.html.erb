@@ -1,0 +1,12 @@
+<%= form_with(model: @recipe_food) do |form| %>
+    <h2>Add ingredients</h2>
+   
+    <%= collection_select(:recipe_food, :food_id, Food.all, :id, :name) %>
+   
+
+    <%= form.label :quantity %>
+    <%= form.number_field :quantity %>
+    <div class="actions">
+      <%= form.submit "Add ingredient"%>
+    </div>
+  <% end %>

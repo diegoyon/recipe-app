@@ -1,0 +1,49 @@
+.details-container {
+  display: flex;
+  justify-content: center;
+}
+
+.details {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.recipe-name {
+  font-size: 3rem;
+  text-align: center;
+}
+
+.recipe-dits {
+  display: flex;
+  align-items: center;
+  gap: 90px;
+}
+
+.recipe-buttons {
+  display: flex;
+  gap: 5px;
+}
+
+.food-list {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.food-list > p:nth-child(8n-7),
+.food-list > p:nth-child(8n-6),
+.food-list > p:nth-child(8n-5),
+.food-list > p:nth-child(8n-4) {
+  background-color: rgb(184, 184, 184);
+}
+
+.food-list > p:nth-child(1),
+.food-list > p:nth-child(2),
+.food-list > p:nth-child(3),
+.food-list > p:nth-child(4) {
+  background-color: rgb(110, 110, 110);
+}
+
+.action-buttons {
+  display: flex;
+}

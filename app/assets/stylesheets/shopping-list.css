@@ -1,0 +1,34 @@
+.shopping-list-page {
+  display: flex;
+  flex-direction: column;
+  width: fit-content;
+  margin: 5rem auto;
+  text-align: center;
+}
+
+.shopping-list-page h1 {
+  margin: 2rem;
+}
+
+.total-missing {
+  display: flex;
+  gap: 4rem;
+  margin: 2rem;
+}
+
+.shopping-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.shopping-list > p:nth-child(6n-5),
+.shopping-list > p:nth-child(6n-4),
+.shopping-list > p:nth-child(6n-3) {
+  background-color: rgb(219, 219, 219);
+}
+
+.shopping-list > p:nth-child(1),
+.shopping-list > p:nth-child(2),
+.shopping-list > p:nth-child(3) {
+  background-color: rgb(155, 155, 155);
+}

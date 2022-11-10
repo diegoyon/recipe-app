@@ -1,0 +1,26 @@
+<div class="foods-page">
+
+
+  <p style="color: green"><%= notice %></p>
+
+  <%= link_to "New food", new_food_path %>
+
+  <div id="foods">
+    <div class="foodtitle-row">
+      <p>Food</p>
+      <p>Measurement Unit</p>
+      <p>Price</p>
+      <p>Quantity</p>
+      <p>User</p>
+      <p>Actions</p>
+    </div>
+    <% @foods.includes([:user]).each do |food| %>
+      <%= render food %>
+    
+        <%#= link_to "Show this food", food %>
+      
+    <% end %>
+
+  </div>
+
+</div>

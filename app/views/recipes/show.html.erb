@@ -1,0 +1,45 @@
+<p style="color: green"><%= notice %></p>
+<div class="details-container">
+<div class="details">
+
+<%= render 'recipe_details' %>
+
+<div class="food-list">
+  <p>Food</p>
+  <p>Quantity</p>
+  <p>Value</p>
+  <p>Actions</p>
+  <% RecipeFood.where(recipe_id: @recipe.id).each do |recipe_food| %>
+    <p><%= Food.find_by(id:recipe_food.food_id).name %></p> 
+    <p><%= recipe_food.quantity%></p>
+     <p>$<%= Food.find_by(id:recipe_food.food_id).price * recipe_food.quantity %></p>
+     <div class="action-buttons">
+     <%= link_to "Modify", edit_recipe_food_path(recipe_food) %>
+     <%= button_to "Delete", recipe_food, method: :delete %>
+     </div>
+  <% end %>
+</div>
+
+<%= form_with(model: @recipe_food) do |form| %>
+    <h2>Add ingredients</h2>
+   
+    <%= collection_select(:recipe_food, :food_id, Food.all, :id, :name) %>
+   
+    <div style="display:none;">
+      <%= form.label :recipe_id %>
+      <%= form.number_field :recipe_id, value: @recipe.id %>
+    </div>
+    <%= form.label :quantity %>
+    <%= form.number_field :quantity %>
+    <div class="actions">
+      <%= form.submit "Add ingredient"%>
+    </div>
+  <% end %>
+
+  <div class="recipe-buttons">
+  <%= link_to "Edit this recipe", edit_recipe_path(@recipe) %> |
+  <%= button_to "remove this recipe", @recipe, method: :delete %>  |
+  <%= link_to "Back to recipes", recipes_path %>
+</div>
+  </div>
+  </div>

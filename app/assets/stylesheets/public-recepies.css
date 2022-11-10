@@ -1,0 +1,19 @@
+.public-recipes {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  border: 1px solid black;
+  padding: 20px;
+  width: 70%;
+}
+
+.recipe-title-user,
+.foods-items {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.fitems {
+  font-size: 1.2rem;
+}

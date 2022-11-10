@@ -1,0 +1,34 @@
+<h1>Public Recipes</h1>
+
+<div class="recipes-container">
+<div class="public-recipes">
+    <% @public_recipes.each do |recipe| %>
+      <div class="recipe-title-user">
+        <%= link_to  recipe_path(recipe) do%>
+          <p class="title-link">
+            <%= recipe.name %>
+          </p>
+        <%end%>
+
+        <p>
+          <strong>By:</strong>
+          <%= recipe.user.name%>
+        </p>
+
+      </div>
+
+      <div class="foods-items">
+        <p class="fitems">
+          <strong>Total food items:</strong>
+          <%=recipe.foods.length%>
+        </p>
+        
+        <p class="fitems">
+          <strong>Total Price: $</strong>
+          <%=count_total(recipe.foods)%>
+        </p>
+      </div>
+   
+  <% end %>
+</div>
+</div>

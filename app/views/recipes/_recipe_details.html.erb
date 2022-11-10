@@ -1,0 +1,26 @@
+<div class="recipe-dits">
+<div class="recipe-items">
+  <p class="recipe-name">
+    <%= @recipe.name %> 
+  </p>
+
+  <p>
+    <strong>Preparation time:</strong>
+    <%= distance_of_time_in_words(0, @recipe.preparation_time.minutes) %> 
+  </p>
+
+  <p>
+    <strong>Cooking time:</strong>
+    <%= distance_of_time_in_words(0,@recipe.cooking_time.minutes) %> 
+  </p>
+  </div>
+    <%= form_with(model: @recipe ) do |f| %>
+      <div class='public-check'>
+        <p>
+         <strong>Public:</strong>
+        </p>
+     <%= f.check_box :public, class: 'form-control', onchange: 'this.form.submit();'  %>
+      </div>
+    <% end %>
+
+</div>

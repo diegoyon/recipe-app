@@ -1,0 +1,27 @@
+<div id="<%= dom_id food %>" class="food-row">
+  <p>
+    <%= food.name %>
+  </p>
+
+  <p>
+    <%= food.measurement_unit %>
+  </p>
+
+  <p>
+    <%= food.price %>
+  </p>
+
+  <p>
+    <%= food.quantity %>
+  </p>
+
+  <p>
+    <% if food.user %>
+    <%= food.user.name %>
+    <% end %>
+  </p>
+
+  <div>
+    <%= button_to "Delete", food, method: :delete %>
+  </div>
+</div>
