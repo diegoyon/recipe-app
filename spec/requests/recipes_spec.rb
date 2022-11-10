@@ -16,8 +16,23 @@ RSpec.describe '/recipes', type: :request do
   # This should return the minimal set of attributes required to create a valid
   # Recipe. As you add validations to Recipe, be sure to
   # adjust the attributes here as well.
+  # let(:valid_attributes) do
+  #   skip('Add a hash of attributes valid for your model')
+  # end
+
+  # let(:invalid_attributes) do
+  #   skip('Add a hash of attributes invalid for your model')
+  # end
+  login_user
   let(:valid_attributes) do
-    skip('Add a hash of attributes valid for your model')
+    user = User.create!(name: 'Bob', email: 'bob@gmail.com', password: '123456qwert')
+    {
+      name: 'Apple',
+      preparation_time: 30,
+      cooking_time: 45,
+      description: 'hi hi hi hi hi ',
+      user_id: 1
+    }
   end
 
   let(:invalid_attributes) do
