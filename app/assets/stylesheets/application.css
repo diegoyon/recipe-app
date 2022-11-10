@@ -20,6 +20,10 @@
   box-sizing: border-box;
 }
 
+body {
+  background-image: url(bedge-grunge.png);
+}
+
 .header-container {
   background-color: black;
   color: white;
