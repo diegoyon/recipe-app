@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe 'RecipeFoods', type: :request do
   login_user
   before(:each) do
-    user = User.create!(name: 'Bob', email: 'bob@gmail.com', password: '123456qwert')
+    User.create!(name: 'Bob', email: 'bob@gmail.com', password: '123456qwert')
     @recipe = Recipe.create!(
       name: 'Apple',
       preparation_time: 30,

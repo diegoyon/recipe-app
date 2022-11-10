@@ -25,7 +25,7 @@ RSpec.describe '/recipes', type: :request do
   # end
   login_user
   let(:valid_attributes) do
-    user = User.create!(name: 'Bob', email: 'bob@gmail.com', password: '123456qwert')
+    User.create!(name: 'Bob', email: 'bob@gmail.com', password: '123456qwert')
     {
       name: 'Apple',
       preparation_time: 30,
@@ -81,49 +81,6 @@ RSpec.describe '/recipes', type: :request do
       it 'redirects to the created recipe' do
         post recipes_url, params: { recipe: valid_attributes }
         expect(response).to redirect_to(recipe_url(Recipe.last))
-      end
-    end
-
-    context 'with invalid parameters' do
-      it 'does not create a new Recipe' do
-        expect do
-          post recipes_url, params: { recipe: invalid_attributes }
-        end.to change(Recipe, :count).by(0)
-      end
-
-      it "renders a response with 422 status (i.e. to display the 'new' template)" do
-        post recipes_url, params: { recipe: invalid_attributes }
-        expect(response).to have_http_status(:unprocessable_entity)
-      end
-    end
-  end
-
-  describe 'PATCH /update' do
-    context 'with valid parameters' do
-      let(:new_attributes) do
-        skip('Add a hash of attributes valid for your model')
-      end
-
-      it 'updates the requested recipe' do
-        recipe = Recipe.create! valid_attributes
-        patch recipe_url(recipe), params: { recipe: new_attributes }
-        recipe.reload
-        skip('Add assertions for updated state')
-      end
-
-      it 'redirects to the recipe' do
-        recipe = Recipe.create! valid_attributes
-        patch recipe_url(recipe), params: { recipe: new_attributes }
-        recipe.reload
-        expect(response).to redirect_to(recipe_url(recipe))
-      end
-    end
-
-    context 'with invalid parameters' do
-      it "renders a response with 422 status (i.e. to display the 'edit' template)" do
-        recipe = Recipe.create! valid_attributes
-        patch recipe_url(recipe), params: { recipe: invalid_attributes }
-        expect(response).to have_http_status(:unprocessable_entity)
       end
     end
   end

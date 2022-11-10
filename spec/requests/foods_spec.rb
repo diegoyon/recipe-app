@@ -39,9 +39,6 @@ RSpec.describe '/foods', type: :request do
     it 'renders a successful response' do
       Food.create! valid_attributes
       get foods_url
-      # puts response.body.inspect
-      # puts response.status.inspect
-      # expect(response).to have_http_status(302)
       expect(response).to be_successful
     end
   end
