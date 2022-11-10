@@ -16,18 +16,32 @@ RSpec.describe '/foods', type: :request do
   # This should return the minimal set of attributes required to create a valid
   # Food. As you add validations to Food, be sure to
   # adjust the attributes here as well.
+  login_user
   let(:valid_attributes) do
-    skip('Add a hash of attributes valid for your model')
+    {
+      name: 'Apple',
+      measurement_unit: 'oz',
+      price: 1.5,
+      quantity: 1
+    }
   end
 
   let(:invalid_attributes) do
-    skip('Add a hash of attributes invalid for your model')
+    {
+      name: 'Apple',
+      measurement_unit: 'oz',
+      price: nil,
+      quantity: -5
+    }
   end
 
   describe 'GET /index' do
     it 'renders a successful response' do
       Food.create! valid_attributes
       get foods_url
+      # puts response.body.inspect
+      # puts response.status.inspect
+      # expect(response).to have_http_status(302)
       expect(response).to be_successful
     end
   end
@@ -63,9 +77,9 @@ RSpec.describe '/foods', type: :request do
         end.to change(Food, :count).by(1)
       end
 
-      it 'redirects to the created food' do
+      it 'redirects to foods index' do
         post foods_url, params: { food: valid_attributes }
-        expect(response).to redirect_to(food_url(Food.last))
+        expect(response).to redirect_to(foods_url)
       end
     end
 
@@ -78,36 +92,6 @@ RSpec.describe '/foods', type: :request do
 
       it "renders a response with 422 status (i.e. to display the 'new' template)" do
         post foods_url, params: { food: invalid_attributes }
-        expect(response).to have_http_status(:unprocessable_entity)
-      end
-    end
-  end
-
-  describe 'PATCH /update' do
-    context 'with valid parameters' do
-      let(:new_attributes) do
-        skip('Add a hash of attributes valid for your model')
-      end
-
-      it 'updates the requested food' do
-        food = Food.create! valid_attributes
-        patch food_url(food), params: { food: new_attributes }
-        food.reload
-        skip('Add assertions for updated state')
-      end
-
-      it 'redirects to the food' do
-        food = Food.create! valid_attributes
-        patch food_url(food), params: { food: new_attributes }
-        food.reload
-        expect(response).to redirect_to(food_url(food))
-      end
-    end
-
-    context 'with invalid parameters' do
-      it "renders a response with 422 status (i.e. to display the 'edit' template)" do
-        food = Food.create! valid_attributes
-        patch food_url(food), params: { food: invalid_attributes }
         expect(response).to have_http_status(:unprocessable_entity)
       end
     end
