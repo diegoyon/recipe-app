@@ -12,7 +12,7 @@
 
 ## Live Demo (if available)
 
-[Live Demo Link](https://livedemo.com)
+[Live Demo Link](https://recipe-rails-project.onrender.com/users/sign_in)
 
 ## Getting Started
 
