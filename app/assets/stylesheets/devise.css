@@ -13,7 +13,7 @@
   align-items: center;
 }
 
-.login {
+.devise-form {
   background-color: white;
   padding: 2rem;
   border-radius: 1rem;
@@ -21,7 +21,7 @@
   flex-direction: column;
 }
 
-.login h2 {
+.devise-form h2 {
   margin-bottom: 1rem;
 }
 
@@ -64,4 +64,9 @@
 
 .actions input:hover {
   background-color: var(--main-darker);
+}
+
+#error_explanation {
+  font-size: 0.8rem;
+  color: red;
 }
