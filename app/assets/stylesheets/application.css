@@ -14,31 +14,67 @@
  *= require_self
  */
 
+@import url('https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: 'Kumbh Sans', sans-serif;
+}
+
+:root {
+  --main: #3ec797;
+  --main-darker: #32a079;
+}
+
+html,
+body {
+  height: calc(100% - 2rem);
 }
 
 body {
-  background-image: url(bedge-grunge.png);
+  background-color: white;
 }
 
 .header-container {
-  background-color: black;
-  color: white;
+  background-color: white;
+  color: black;
   display: flex;
   justify-content: space-between;
-  padding: 25px;
+  /* padding: 1.5rem; */
+  height: 4rem;
+  margin: 0 2rem;
+  align-items: center;
+  font-weight: 600;
+  font-size: 1.2rem;
+}
+
+.nav-left {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.nav-left img {
+  height: 2rem;
+}
+
+.nav-left h1 {
+  font-size: 1.2rem;
 }
 
 .header-container ul {
   display: flex;
   list-style-type: none;
-  gap: 25px;
+  gap: 1rem;
 }
 
-.header-container ul a {
+a {
   text-decoration: none;
-  color: white;
+  color: black;
+}
+
+a:visited {
+  color: black;
 }
