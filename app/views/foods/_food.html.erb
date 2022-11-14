@@ -22,6 +22,8 @@
   </p>
 
   <div>
+  <% if can? :manage, food%>
     <%= button_to "Delete", food, method: :delete %>
+    <% end %>
   </div>
 </div>
