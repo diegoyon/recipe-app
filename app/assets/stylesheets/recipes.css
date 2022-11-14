@@ -17,19 +17,18 @@
 }
 
 .new-recipe {
-  border: 1px solid black;
-  width: 6em;
-  text-align: center;
-  color: lightblue;
-  align-self: flex-start;
+  align-self: flex-end;
+  padding: 10px;
+  border: 1px solid #666;
+  color: #000;
+  text-decoration: none;
+  border-radius: 5px;
+  margin-bottom: 5px;
+  background-color: var(--main);
 }
 
 .public-check {
   display: flex;
-}
-
-.recipes {
-  width: 70%;
 }
 
 .recipes-container {
