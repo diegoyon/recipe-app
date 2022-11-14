@@ -1,16 +1,17 @@
 <div id="<%= dom_id recipe %>" class="recipe-index">
-<div class="container">
-<div class="recipe-name-remove">
-<%= link_to  recipe_path(recipe) do%>
-  <p class="title-link">
-    <%= recipe.name %>
-  </p>
-  <%end%>
-<%= button_to "REMOVE", recipe, method: :delete %>
-</div>
-  <p>
-    <%= recipe.description %>
-  </p>
-  </div>
+  <div class="container">
+      <div class="title-button-container">
+          <%= link_to  recipe_path(recipe) do%>
+            <p class="title-link">
+              <%= recipe.name %>
+            </p>
+            <%end%>
+            <%= button_to "REMOVE", recipe, method: :delete, class:"delete-btn" %>
+        </div>
+
+        <p class="description">
+          <%= recipe.description %>
+        </p>
+    </div>
 </div>
 
