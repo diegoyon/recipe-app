@@ -1,19 +1,21 @@
 <header class="header-container">
-  <div class="nav-left">
-    <%= image_tag "diet.png" %>
-    <h1>RecipeApp</h1>
-  </div>
+  <%= link_to root_path do %>
+    <div class="nav-left">
+      <%= image_tag "diet.png" %>
+      <h1>RecipeApp</h1>
+    </div>
+  <% end %>
   <ul>
     <% if user_signed_in?%>  
-      <%= button_to "Logout", destroy_user_session_path, method: :delete, data: { turbo: false }, :class => 'logout' %>
-        <li><%= link_to 'Foods', root_path%></li> 
-        <li><%= link_to 'Edit Profile', edit_user_registration_path%></li>
-        <li><%= link_to 'Recipes',recipes_path %></li>
-        <li><%= link_to 'Public Recipes', public_recipes_path %></li>
-        <li><%= link_to 'Shopping List', general_shopping_list_path %></li>
+        <li class="nav-link <%= "highlighted" if current_page?(root_path) %>"><%= link_to 'Foods', root_path%></li>
+        <li class="nav-link <%= "highlighted" if current_page?(recipes_path) %>"><%= link_to 'Recipes', recipes_path %></li>
+        <li class="nav-link <%= "highlighted" if current_page?(public_recipes_path) %>"><%= link_to 'Public Recipes', public_recipes_path %></li>
+        <li class="nav-link <%= "highlighted" if current_page?(general_shopping_list_path) %>"><%= link_to 'Shopping List', general_shopping_list_path %></li>
+        <li class="nav-link <%= "highlighted" if current_page?(edit_user_registration_path) %>"><%= link_to 'Edit Profile', edit_user_registration_path%></li>
+        <li><%= button_to "Sign Out", destroy_user_session_path, method: :delete, class: 'sign-out' %></li>
       <% else%> 
-        <li><%= link_to 'Sign Up', new_user_registration_path %></li> 
-        <li><%= link_to 'Sign In', new_user_session_path%></li> 
+        <li><%= link_to 'Sign In', new_user_session_path %></li> 
+        <li><%= link_to 'Sign Up', new_user_registration_path, class: 'sign-up' %></li> 
       <% end %>
   </ul>
 </header>
