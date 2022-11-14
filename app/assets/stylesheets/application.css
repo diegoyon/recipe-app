@@ -74,7 +74,7 @@ body {
 }
 
 a {
-   text-decoration: none;
+  text-decoration: none;
   color: var(--main);
 }
 
@@ -128,11 +128,11 @@ a {
   transition: opacity 300ms, transform 300ms;
 }
 
-.nav-link::after {
+/* .nav-link::after {
   opacity: 1;
   transform: scale(0);
   transform-origin: center;
-}
+} */
 
 .nav-link:hover::after,
 .nav-link:focus::after {
