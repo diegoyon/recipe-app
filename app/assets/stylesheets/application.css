@@ -127,11 +127,6 @@ a:visited {
   transition: opacity 300ms, transform 300ms;
 }
 
-.nav-link:hover::after,
-.nav-link:focus::after {
-  opacity: 1;
-}
-
 .nav-link::after {
   opacity: 1;
   transform: scale(0);
@@ -140,6 +135,7 @@ a:visited {
 
 .nav-link:hover::after,
 .nav-link:focus::after {
+  opacity: 1;
   transform: scale(1);
 }
 
