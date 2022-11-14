@@ -1,8 +1,9 @@
 <h1>Public Recipes</h1>
 
-<div class="recipes-container">
+
 <div class="public-recipes">
-    <% @public_recipes.each do |recipe| %>
+    <% @public_recipes.includes([:user, :recipe_foods, :foods]).each do |recipe| %>
+    <div class="pub-recipe">
       <div class="recipe-title-user">
         <%= link_to  recipe_path(recipe) do%>
           <p class="title-link">
@@ -28,7 +29,6 @@
           <%=count_total(recipe.foods)%>
         </p>
       </div>
-   
+   </div>
   <% end %>
-</div>
 </div>
