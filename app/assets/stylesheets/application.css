@@ -69,6 +69,7 @@ body {
   list-style-type: none;
   gap: 1rem;
   align-items: center;
+  font-size: 1rem;
 }
 
 a {
@@ -102,6 +103,7 @@ a:visited {
   border: none;
   font-weight: 600;
   font-size: 1rem;
+  cursor: pointer;
 }
 
 .nav-link {
