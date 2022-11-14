@@ -140,3 +140,7 @@ a:visited {
 .nav-link:focus::after {
   transform: scale(1);
 }
+
+.green {
+  color: var(--main);
+}
