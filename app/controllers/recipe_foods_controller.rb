@@ -9,7 +9,7 @@ class RecipeFoodsController < ApplicationController
     @recipe_food = RecipeFood.new(recipe_food_params)
     respond_to do |format|
       if @recipe_food.save
-        format.html { redirect_to recipe_foods_url(@recipe_food), notice: 'RecipeFood was successfully created.' }
+        format.html { redirect_to recipe_url(@recipe_food.recipe_id), notice: 'RecipeFood was successfully created.' }
         format.json { render :show, status: :created, location: @recipe_food }
       else
         format.html { render :new, status: :unprocessable_entity }

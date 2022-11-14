@@ -104,17 +104,13 @@ a:visited {
   font-size: 1rem;
 }
 
-/* .nav-link:hover {
-  border-bottom: 3px solid var(--main);
-  animation: underline 2s ease-in 0 1 direction fill-mode;
-} */
+.nav-link {
+  position: relative;
+  border-bottom: 0.2rem solid transparent;
+}
 
 .highlighted {
   border-bottom: 0.2rem solid var(--main);
-}
-
-.nav-link {
-  position: relative;
 }
 
 .nav-link::after {
