@@ -14,8 +14,10 @@
     <p><%= recipe_food.quantity%></p>
      <p>$<%= Food.find_by(id:recipe_food.food_id).price * recipe_food.quantity %></p>
      <div class="action-buttons">
+     <% if can? :manage, recipe_food %>
      <%= link_to "Modify", edit_recipe_food_path(recipe_food) %>
      <%= button_to "Delete", recipe_food, method: :delete %>
+     <% end %>
      </div>
   <% end %>
 </div>
@@ -31,14 +33,16 @@
     </div>
     <%= form.label :quantity %>
     <%= form.number_field :quantity %>
-    <div class="actions">
+    <div class="add-ingredient-btn">
       <%= form.submit "Add ingredient"%>
     </div>
   <% end %>
 
   <div class="recipe-buttons">
+  <% if can? :manage, @recipe %>
   <%= link_to "Edit this recipe", edit_recipe_path(@recipe) %> |
-  <%= button_to "remove this recipe", @recipe, method: :delete %>  |
+  <%= button_to "remove this recipe", @recipe, method: :delete, class:"details-remove-btn" %>  |
+  <%end%>
   <%= link_to "Back to recipes", recipes_path %>
 </div>
   </div>

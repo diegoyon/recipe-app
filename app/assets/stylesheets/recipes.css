@@ -1,7 +1,15 @@
-.recipe-name-remove {
+.recipes-container {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  width: 100%;
+  padding: 30px;
+  align-items: center;
+}
+
+.recipes {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
 }
 
 .recipe-index {
@@ -10,17 +18,17 @@
 
 .container {
   display: flex;
-  align-items: center;
-  justify-content: space-around;
   border: 1px solid black;
   padding: 30px;
+  align-items: center;
+  gap: 30px;
 }
 
 .new-recipe {
   align-self: flex-end;
   padding: 10px;
   border: 1px solid #666;
-  color: #000;
+  color: #fff;
   text-decoration: none;
   border-radius: 5px;
   margin-bottom: 5px;
@@ -31,14 +39,18 @@
   display: flex;
 }
 
-.recipes-container {
+.title-button-container {
   display: flex;
+  gap: 30px;
   flex-direction: column;
-  align-items: center;
-  width: 100%;
-  padding: 30px;
+  width: 20%;
 }
 
 .title-link {
-  font-size: 2rem;
+  font-size: 3rem;
+  color: var(--main);
+}
+
+.delete-btn {
+  padding: 10px;
 }

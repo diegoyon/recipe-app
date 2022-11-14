@@ -1,12 +1,16 @@
 .details-container {
   display: flex;
   justify-content: center;
+  align-items: center;
+  height: 100vh;
 }
 
 .details {
   display: flex;
   flex-direction: column;
   gap: 30px;
+  border: 1px solid black;
+  padding: 20px;
 }
 
 .recipe-name {
@@ -30,6 +34,10 @@
   grid-template-columns: repeat(4, 1fr);
 }
 
+.food-list p {
+  padding: 10px;
+}
+
 .food-list > p:nth-child(8n-7),
 .food-list > p:nth-child(8n-6),
 .food-list > p:nth-child(8n-5),
@@ -44,6 +52,26 @@
   background-color: rgb(110, 110, 110);
 }
 
+.add-ingredient-btn input {
+  background-color: var(--main);
+  width: 82%;
+  padding: 1rem;
+  border: none;
+  font-size: 1rem;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  border-radius: 0.5rem;
+  margin-top: 10px;
+}
+
 .action-buttons {
   display: flex;
+}
+
+.details-remove-btn {
+  border: none;
+  background: #fff;
+  font-size: 1rem;
+  color: var(--main);
 }
