@@ -10,7 +10,7 @@
 - Postgres SQL
 - HTML & CSS
 
-## Live Demo (if available)
+## Live Demo
 
 [Live Demo Link](https://recipe-rails-project.onrender.com/users/sign_in)
 
